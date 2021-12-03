@@ -1,17 +1,19 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <PackAsTool>true</PackAsTool>
-    <ToolCommandName>localdb</ToolCommandName>
+    <ToolCommandName>ldb</ToolCommandName>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>LocalDB.Cli</PackageId>
     <Description>Allows you to create, manage and delete local databases</Description>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CommandLineParser" Version="2.4.3" />
+	<PackageReference Include="Microsoft.Data.SqlClient" Version="4.0.0" />
+	<PackageReference Include="Dapper" Version="2.0.123" />
+    <PackageReference Include="System.CommandLine" Version="2.0.0-beta1.21308.1" />
   </ItemGroup>
 
 </Project>

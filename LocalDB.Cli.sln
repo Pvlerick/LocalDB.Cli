@@ -1,11 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26124.0
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.31903.286
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4F28C19E-2E5F-4EFA-8334-0A2D98E903FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalDB.Cli", "src\LocalDB.Cli\LocalDB.Cli.csproj", "{92C275A2-1DB5-41A9-9BC4-DA389648B47C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalDB.Cli", "src\LocalDB.Cli\LocalDB.Cli.csproj", "{92C275A2-1DB5-41A9-9BC4-DA389648B47C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FC81DF25-7F2C-44DD-911D-6AC2D72DD546}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +22,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{92C275A2-1DB5-41A9-9BC4-DA389648B47C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -33,7 +37,13 @@ Global
 		{92C275A2-1DB5-41A9-9BC4-DA389648B47C}.Release|x86.ActiveCfg = Release|Any CPU
 		{92C275A2-1DB5-41A9-9BC4-DA389648B47C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{92C275A2-1DB5-41A9-9BC4-DA389648B47C} = {4F28C19E-2E5F-4EFA-8334-0A2D98E903FB}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D1062139-DDE7-4046-A417-AA85F5DBCCB3}
 	EndGlobalSection
 EndGlobal
