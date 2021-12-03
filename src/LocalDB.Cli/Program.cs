@@ -1,4 +1,5 @@
 ﻿using System.CommandLine;
+using System.CommandLine.Invocation;
 using System.Threading.Tasks;
 
 namespace LocalDB.Cli;
@@ -13,6 +14,8 @@ partial class Program
         var rootCommand = new RootCommand();
 
         rootCommand.Add(CreateListCommand());
+        rootCommand.Add(CreateInspectCommand());
+        rootCommand.Add(CreateDeleteCommand());
         rootCommand.Add(CreateLoadDacpacCommand());
 
         await rootCommand.InvokeAsync(args);

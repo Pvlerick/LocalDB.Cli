@@ -1,4 +1,5 @@
 ﻿using Microsoft.SqlServer.Dac;
+using System;
 using System.CommandLine;
 using System.CommandLine.Invocation;
 using System.Linq;
@@ -9,7 +10,7 @@ partial class Program
 {
     static Command CreateLoadDacpacCommand()
     {
-        var command = new Command("load-dacpac")
+        var command = new Command("load-dacpac", "Create/update a databases from a DACPAC")
         {
             new Option<string>(
                 aliases: new[] { "--path", "-p" },
@@ -24,8 +25,6 @@ partial class Program
                 aliases: new[] { "--dry-run", "-d" },
                 description: "only ouptut the changes script, don't execute"),
         };
-
-        command.Description = "Create/Update a databases from a DACPAC";
 
         command.Handler = CommandHandler.Create<string, string, string[], bool>((path, name, variables, dryRun) =>
         {
@@ -45,7 +44,7 @@ partial class Program
                     targetDatabaseName: name,
                     options: deployOptions);
 
-                System.Console.WriteLine(script);
+                Console.WriteLine(script);
             }
             else
             {

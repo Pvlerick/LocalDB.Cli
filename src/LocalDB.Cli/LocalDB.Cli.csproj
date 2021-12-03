@@ -14,7 +14,7 @@
 	<PackageReference Include="Microsoft.Data.SqlClient" Version="4.0.0" />
 	<PackageReference Include="Microsoft.SqlServer.DacFx" Version="160.5339.7-preview" />
 	<PackageReference Include="Dapper" Version="2.0.123" />
-    <PackageReference Include="System.CommandLine" Version="2.0.0-beta1.21308.1" />
+	<PackageReference Include="System.CommandLine" Version="2.0.0-beta1.21308.1" />
   </ItemGroup>
 
 </Project>

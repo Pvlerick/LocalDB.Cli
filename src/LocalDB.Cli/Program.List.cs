@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using Microsoft.Data.SqlClient;
+using System;
 using System.CommandLine;
 using System.CommandLine.Invocation;
 
@@ -9,7 +10,7 @@ partial class Program
 {
     static Command CreateListCommand()
     {
-        var command = new Command("list")
+        var command = new Command("list", "List databases (excluding system databases)")
         {
             new Option<string>(
                 aliases: new[] { "--filter", "-f" },
@@ -17,21 +18,18 @@ partial class Program
                 getDefaultValue: () => "*")
         };
 
-        command.Description = "List databases";
-
-        command.Handler = CommandHandler.Create<string>(filter =>
+        command.Handler = CommandHandler.Create<string>(async filter =>
         {
             using var connection = new SqlConnection(string.Format(ConnectionStringTemplate, "master"));
 
-            var databases = connection.Query<string>(
+            var databases = await connection.QueryAsync<string>(
                 "SELECT DISTINCT name FROM sys.databases" +
-                " WHERE name NOT IN @SystemDatabases" +
+                " WHERE suser_sname(owner_sid) <> 'sa'" + //Exclude system databases
                 " AND name LIKE @Filter",
-                new { Program.SystemDatabases, Filter = filter.Replace('*', '%') });
+                new { Filter = filter.Replace('*', '%') });
 
-            foreach (var item in databases)
-                System.Console.WriteLine(item);
-
+            foreach (var database in databases)
+                Console.WriteLine(database);
         });
 
         return command;
