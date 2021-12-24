@@ -1,0 +1,20 @@
+version: '{build}.{branch}'
+
+image: Visual Studio 2022
+
+build:
+  verbosity: minimal
+
+build_script:
+- ps: dotnet cake build.cake
+
+artifacts:
+  - path: 'src\**\Release\*.nupkg'
+
+deploy:
+  provider: NuGet
+  on:
+    branch: master
+    appveyor_repo_tag: true
+  api_key:
+    secure: hSAsKgn+QoQPc0aKt5Y7a8vwfN02NOS+X8V1UQyW+SOkmTEHtc6csP5qsovrnLpy
