@@ -5,6 +5,9 @@ image: Visual Studio 2022
 build:
   verbosity: minimal
 
+environment:
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+
 install:
   - ps: .\build\dotnet-install.ps1 -InstallDir 'C:\Program Files\dotnet\'
   - ps: dotnet tool install cake.tool --global
@@ -19,6 +22,5 @@ deploy:
   provider: NuGet
   on:
     branch: master
-    appveyor_repo_tag: true
   api_key:
     secure: hSAsKgn+QoQPc0aKt5Y7a8vwfN02NOS+X8V1UQyW+SOkmTEHtc6csP5qsovrnLpy
