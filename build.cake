@@ -1,6 +1,6 @@
 #tool "nuget:?package=GitVersion.CommandLine&version=5.8.1"
 
-var target = Argument("target", "Build");
+var target = Argument("target", "Default");
 
 Task("Build")
   .DoesForEach(GetFiles("src/**/*.*proj"), file =>
