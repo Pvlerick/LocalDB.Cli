@@ -1,0 +1,27 @@
+version: '{build}.{branch}'
+
+image: Visual Studio 2022
+
+build:
+  verbosity: minimal
+
+environment:
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+
+install:
+  - ps: .\build\dotnet-install.ps1 -InstallDir 'C:\Program Files\dotnet\'
+  - ps: dotnet tool install cake.tool --global
+
+build_script:
+  - ps: dotnet cake build.cake
+
+artifacts:
+  - path: 'src\**\Release\*.nupkg'
+
+deploy:
+  provider: NuGet
+  on:
+    branch: master
+  api_key:
+    secure: hSAsKgn+QoQPc0aKt5Y7a8vwfN02NOS+X8V1UQyW+SOkmTEHtc6csP5qsovrnLpy

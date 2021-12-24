@@ -10,6 +10,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FC81DF25-7F2C-44DD-911D-6AC2D72DD546}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		appveyor.yml = appveyor.yml
+		build.cake = build.cake
+		build\dotnet-install.ps1 = build\dotnet-install.ps1
 		LICENSE = LICENSE
 		README.md = README.md
 	EndProjectSection
