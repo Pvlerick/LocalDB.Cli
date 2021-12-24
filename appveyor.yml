@@ -7,7 +7,7 @@ build:
 
 install:
   - ps: .\build\dotnet-install.ps1 -InstallDir 'C:\Program Files\dotnet\'
-  - ps: dotnet tool restore
+  - ps: dotnet tool install cake.tool --global
 
 build_script:
   - ps: dotnet cake build.cake
